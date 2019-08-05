@@ -1,0 +1,155 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.margin-header {
+  margin-top: 20px;
+}
+
+.user-panel-info-name {
+  padding-top: 10px;
+  font-size: 22px;
+  color: black;
+  text-align: left;
+  line-height: 0.7em;
+}
+
+.user-panel-info-company {
+  padding-bottom: 10px;
+  font-size: 16px;
+  color: grey;
+  text-align: left;
+}
+
+.user-panel-info-more {
+  padding-bottom: 10px;
+  font-size: 16px;
+  color: grey;
+  text-align: left;
+  font-style: italic;
+}
+
+.user-panel-events-friends {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  border-bottom: 1px solid #282c34;
+  border-top: 1px solid #282c34;
+  width: 90%;
+}
+
+.bold-info {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+}
+
+.grey-info {
+  font-size: 16px;
+  font-style: italic;
+  color: grey;
+  text-align: center;
+}
+
+.user-event-remaining {
+  min-width: 200px;
+  padding-top: 20px;
+  line-height: 0.2em;
+  font-size: 16px;
+  text-align: left;
+}
+
+.user-event-date {
+  line-height: 0.7em;
+  font-size: 16px;
+  text-align: left;
+}
+
+.user-event-participants {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: grey;
+  text-align: left;
+}
+
+.user-friends-picture {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.user-friends-name {
+  font-size: 16px;
+  color: black;
+  text-align: left;
+}
+
+.user-friends-info {
+  line-height: 0.7em;
+  font-size: 16px;
+  color: grey;
+  text-align: left;
+}
+
+img.rounded-picture {
+  border-radius: 8%;
+}
+
+div.style-border{
+  border: 1px solid #979797;
+  border-radius: 3%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-right: 10px;
+  width: 250px;
+}
+
+.tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
