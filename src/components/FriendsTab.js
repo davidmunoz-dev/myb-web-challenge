@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Media from 'react-bootstrap/Col';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Fetch from './Fetch';
 
 const FriendPicture = ({ image }) => (
   <Media>
@@ -26,51 +27,38 @@ const Friends = ({ name, events, friends }) => (
 )
 
 class FriendsTab extends React.Component {
+  constructor() {
+    super();
+    this.handleData = this.handleData.bind(this);
+    this.state = {
+      friends: [],
+    };
+  }
+
+  handleData(fetchedData) {
+    this.setState({
+      friends: fetchedData.data
+    });
+  }
+
   render() {
+  
     return (
       <Container>
         <h5>{this.props.title}</h5>
+        <Fetch path={"/players/1/friends"} handlerFromParant={this.handleData} />
         <Row>
-          <div className="style-border">
-            <Row>
-              <Col xs lg="4">
-                <FriendPicture image={"https://s3.amazonaws.com/uifaces/faces/twitter/rawdiggie/128.jpg"} />
-              </Col>
-              <Col>
-                <Friends name={"Maeva Chevalier"} events={340} friends={38} />
-              </Col>
-            </Row>
-          </div>
-          <div className="style-border">
-            <Row>
-              <Col xs lg="4">
-                <FriendPicture image={"https://s3.amazonaws.com/uifaces/faces/twitter/rawdiggie/128.jpg"} />
-              </Col>
-              <Col>
-                <Friends name={"Jean Louis"} events={340} friends={38} />
-              </Col>
-            </Row>
-          </div>
-          <div className="style-border">
-            <Row>
-              <Col xs lg="4">
-                <FriendPicture image={"https://s3.amazonaws.com/uifaces/faces/twitter/rawdiggie/128.jpg"} />
-              </Col>
-              <Col>
-                <Friends name={"Louis Patro"} events={340} friends={38} />
-              </Col>
-            </Row>
-          </div>
-          <div className="style-border">
-            <Row>
-              <Col xs lg="4">
-                <FriendPicture image={"https://s3.amazonaws.com/uifaces/faces/twitter/rawdiggie/128.jpg"} />
-              </Col>
-              <Col>
-                <Friends name={"Pablo Escobar"} events={340} friends={38} />
-              </Col>
-            </Row>
-          </div>
+          {this.state.friends.map(friend => (
+            <div className="style-border" key={friend.id}>
+              <Row>
+                <Col xs lg="4">
+                  <FriendPicture image={friend.picture} />
+                </Col>
+                <Col>
+                  <Friends name={friend.first_name + " " + friend.last_name} events={friend.total_events} friends={friend.total_friends} />              </Col>
+              </Row>
+            </div>
+          ))}
         </Row>
       </Container>
     );
