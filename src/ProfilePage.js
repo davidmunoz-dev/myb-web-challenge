@@ -6,8 +6,7 @@ import UserPanel from './components/UserPanel';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import Tabs from './components/Tabs';
 
 class ProfilePage extends Component {
     render() {
@@ -18,14 +17,14 @@ class ProfilePage extends Component {
                         <UserPanel />
                     </Col>
                     <Col xs lg="9">
-                    <Navbar>
-                        <Nav>
-                            <Nav.Link href="#Upcoming events">Upcoming events</Nav.Link>
-                            <Nav.Link href="#Friends">Friends</Nav.Link>
-                        </Nav>
-                    </Navbar>
-                    <UpcomingEventsTab />
-                    <FriendsTab />
+                        <Tabs>
+                            <div label="Upcoming events">
+                                <UpcomingEventsTab title="Upcoming events" />
+                            </div>
+                            <div label="Friends">
+                                <FriendsTab title="Friends" />
+                            </div>
+                        </Tabs>
                     </Col>
                 </Row>
             </Container>
