@@ -142,8 +142,8 @@ div.style-border{
 
 .tab-list-active {
   background-color: white;
-  border: solid #ccc;
-  border-width: 1px 1px 0 1px;
+  border: solid rgb(109, 109, 109);
+  border-width: 0 0 3px 0;
 }
 
 @keyframes App-logo-spin {
