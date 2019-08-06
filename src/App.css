@@ -107,6 +107,13 @@
   text-align: left;
 }
 
+.user-friends-name:hover {
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+  text-align: left;
+}
+
 .user-friends-info {
   line-height: 0.7em;
   font-size: 16px;
@@ -127,13 +134,26 @@ div.style-border{
   width: 250px;
 }
 
+.nav-bar {
+  color: rgb(110, 110, 110);
+}
+
+.nav-bar:hover {
+  text-decoration: none;
+  color: rgb(49, 49, 49);
+  border: solid rgb(109, 109, 109);
+  border-width: 0 0 3px 0; 
+}
+
 .tab-list {
+  color: grey;
   border-bottom: 1px solid #ccc;
   padding-left: 0;
   margin-top: 50px;
 }
 
 .tab-list-item {
+  color: grey;
   display: inline-block;
   list-style: none;
   margin-bottom: -1px;

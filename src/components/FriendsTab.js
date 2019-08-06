@@ -18,13 +18,9 @@ const FriendPicture = ({ image }) => (
   </Media>
 )
 
-const Friends = ({ name, events, friends }) => (
-  <div >
-    <h3 className="user-friends-name">{name}</h3>
-    <h4 className="user-friends-info">{events} events</h4>
-    <h4 className="user-friends-info">{friends} friends</h4>
-  </div>
-)
+
+
+
 
 class FriendsTab extends React.Component {
   constructor() {
@@ -35,6 +31,10 @@ class FriendsTab extends React.Component {
     };
   }
 
+  handleClick(id) {
+    window.location.href="http://localhost:3000/players/" + id + "/upcoming";
+  }
+
   handleData(fetchedData) {
     this.setState({
       friends: fetchedData.data
@@ -42,11 +42,21 @@ class FriendsTab extends React.Component {
   }
 
   render() {
-  
+
+    const { params } = this.props.match;
+
+    const Friends = ({ name, events, friends, id }) => (
+      <div >
+        <a  className="user-friends-name" onClick={(e) => this.handleClick(id, e)}>{name}</a >
+        <h4 className="user-friends-info">{events} events</h4>
+        <h4 className="user-friends-info">{friends} friends</h4>
+      </div>
+    )
+
     return (
       <Container>
         <h5>{this.props.title}</h5>
-        <Fetch path={"/players/1/friends"} handlerFromParant={this.handleData} />
+        <Fetch path={"/players/" + params.id + "/friends"} handlerFromParant={this.handleData} />
         <Row>
           {this.state.friends.map(friend => (
             <div className="style-border" key={friend.id}>
@@ -55,7 +65,9 @@ class FriendsTab extends React.Component {
                   <FriendPicture image={friend.picture} />
                 </Col>
                 <Col>
-                  <Friends name={friend.first_name + " " + friend.last_name} events={friend.total_events} friends={friend.total_friends} />              </Col>
+                  {console.log("friends:" + JSON.stringify(friend))}
+                  <Friends name={friend.first_name + " " + friend.last_name} events={friend.total_events} friends={friend.total_friends} id={friend.id} />
+                </Col>
               </Row>
             </div>
           ))}

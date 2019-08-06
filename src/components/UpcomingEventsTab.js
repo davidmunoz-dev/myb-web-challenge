@@ -33,15 +33,18 @@ class UpcomingEventsTab extends React.Component {
 
 
   render() {
+
+    const { params } = this.props.match;
+
     if (this.state.data) {
       return <div>Can't get an user...</div>;
     }
 
     return (
       <Container>
-        <h5>{this.props.title}</h5>
         <div>
-          <Fetch path={"/players/1/lastEvents"} handlerFromParant={this.handleData} />
+          <h5>{this.props.title}</h5>
+          <Fetch path={"/players/" + params.id + "/lastEvents"} handlerFromParant={this.handleData} />
           <Row>
             {this.state.events.map(event => (
               <div className="style-border" key={event.id} >
