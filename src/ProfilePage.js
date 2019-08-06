@@ -43,7 +43,6 @@ class ProfilePage extends Component {
                                     <Link className="nav-bar" to={`/players/${this.state.userId}/friends`}>Friends</Link>
                                 </li>
                             </ul>
-                            
                             <Switch>
                                 <Route
                                     path="/players/:id/upcoming"
@@ -57,6 +56,7 @@ class ProfilePage extends Component {
                                     path="/players/:id"
                                     render={(props) => <FriendsTab {...props} title="Friends" />}
                                 />
+                                <Redirect from="/" to="/players/1/upcoming" />
                                 <Route component={Notfound} />
                             </Switch>
                         </Col>
