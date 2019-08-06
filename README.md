@@ -22,4 +22,7 @@ yarn start
 npm start
 ```
 
-*This may not be the definitive version, there are still some bugs to correct.*
+### Screenshots of the app
+
+![Upcoming Events](./docs/images/01.PNG?raw=true )
+![Friends](./docs/images/02.PNG?raw=true )
